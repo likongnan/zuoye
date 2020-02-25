@@ -20,16 +20,16 @@
             myDis:"true"
         },
         mounted:function () {
+            var time= setInterval(
+                 ()=>{
+                     this.myBtnText--
+                     if (this.myBtnText<=0) {
+                         clearInterval(time)
+                         this.myBtnText="提交"
+                         this.myDis=false
+                     }
+                 },1000)
 
-            setInterval(i>0?
-                ()=>{
-                i--
-                this.myBtnText=i
-                }:()=>{
-                clearInterval()
-                this.myBtnText="提交"
-                this.myDis=false
-            },1000)
 
        }
     })
