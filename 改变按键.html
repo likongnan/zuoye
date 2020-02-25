@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <button v-bind:disabled="myDis">{{myBtnText}}</button>
+</div>
+
+<script>
+    var i =10
+    var vm = new Vue({
+        el:"#app",
+
+        data:{
+            myBtnText:i,
+            myDis:"true"
+        },
+        mounted:function () {
+
+            setInterval(i>0?
+                ()=>{
+                i--
+                this.myBtnText=i
+                }:()=>{
+                clearInterval()
+                this.myBtnText="提交"
+                this.myDis=false
+            },1000)
+
+       }
+    })
+</script>
+</body>
+</html>
