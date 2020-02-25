@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        .aa{
+            width: 200px;height: 200px;
+            background: red;
+        }
+        .red {
+            background: red;
+        }
+        .greed{
+            background: green;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <div class="aa" :class ="caa"></div>
+    <button @click="bg">改变颜色</button>
+</div>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            caa:"red"
+        },
+        methods:{
+            bg:function () {
+                if (this.caa=="red"){
+                    this.caa="greed"
+                }
+                else {
+                    this.caa="red"
+                }
+
+            }
+        }
+    })
+</script>
+</body>
+</html>
