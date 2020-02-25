@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    {{text}}
+    <button @click="change">改大写</button>
+</div>
+<script>
+    var vm =new Vue({
+        el:"#app",
+        data:{
+            text:"hellow"
+        },
+        methods:{
+            change:function () {
+               this.text=this.text.toUpperCase()
+            }
+        }
+    })
+</script>
+</body>
+</html>
