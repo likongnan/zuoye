@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.8/vue.min.js"></script>
+
+<div>
+           
+    <table id="table" >     
+        <thead>               
+        <tr>                   
+            <th>序号</th>
+            <th>学号</th>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>籍贯</th>
+            <th>联系方式</th>                                     
+        </tr>
+                   
+        </thead>
+                     
+        <tbody>
+                         
+        <tr v-for="(user,index) in stu">
+                                 
+            <td>{{index+1}}</td>                     
+            <td>{{user.xh}}</td>                   
+            <td>{{user.name}}</td>
+            <td>{{user.xb}}</td>
+            <td>{{user.jg}}</td>
+            <td>{{user.lx}}</td>
+                                                   
+        </tr>
+                         
+                   
+        </tbody>
+               
+    </table>
+     
+             
+       
+</div>
+ 
+
+<script type="text/javascript">
+    new Vue({
+        el: '#table',
+        data: {
+            user: {name: "", xb: "", jg: "", lx: "", xh: ""},
+            stu: [
+                {name: "小小", xb: "男", jg: "广西", lx: "155257", xh: "25"},
+                {name: "小米", xb: "女", jg: "女", lx: "1576", xh: "35"},
+                {name: "来了", xb: "男", jg: "男", lx: "157", xh: "45"},
+                {name: "易天", xb: "女", jg: "女", lx: "15784", xh: "68"},
+                {name: "龙无", xb: "男", jg: "男", lx: "1577", xh: "38"}
+            ]
+        },
+
+    })
+</script>
+
+</body>
+</html>
