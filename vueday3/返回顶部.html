@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<img v-if="btnFlag" class="go-top" src="u=1355280952,589487927&fm=26&gp=0.jpg" @click="backTop">
+		</div>
+		<script>
+			var db =new Vue({
+				el:"app",
+				data:{
+				},
+				mounted () {
+				  window.addEventListener('scroll', this.scrollToTop)
+				},
+				destroyed () {
+				  window.removeEventListener('scroll', this.scrollToTop)
+				},
+				methods: {
+				  backTop () {
+				      const that = this
+				      let timer = setInterval(() => {
+				        let ispeed = Math.floor(-that.scrollTop / 5)
+				        document.documentElement.scrollTop = document.body.scrollTop = that.scrollTop + ispeed
+				        if (that.scrollTop === 0) {
+				          clearInterval(timer)
+				        }
+				      }, 16)
+				  }
+
+			})
+		</script>
+	</body>
+</html>
