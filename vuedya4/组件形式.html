@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="json/axios.min.js" type="text/javascript" charset="utf-8"></script>
+    <style>
+        ul, li {
+            list-style: none
+        }
+
+        .list {
+            display: flex;
+            flex-wrap: nowrap;
+            flex-direction: row;
+        }
+
+        .list li {
+        }
+
+        .list li {
+            width: 80px;
+            height: 110px;
+            margin: 5px;
+            background: lightskyblue
+        }
+
+        .list li div img {
+            width: 80px;
+            height: 100px
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <ul class="list">
+        <my-bt></my-bt>
+        <my-nr :zyn="gcList"></my-nr>
+    </ul>
+</div>
+<script>
+    var myBt = {
+        template: `<h2 class="my-bt">值得看的电视剧</h2>`
+    }
+    var myitem = {
+        props: ["i"],
+        template: `<li>
+<div> <img :src="item.cover.url" title="item.title">
+                {{item.title}}
+                </div>
+</li>`
+    }
+    //内容
+    var myNr={
+        props: "zyn",
+        created:function () {
+            console.log(this.zyn);
+        },
+        template:`<ul>
+<myitem v-for="(item,index) in zyn" :i="item"></myitem>
+</ul>`,
+        component:{
+            myitem
+        }
+    }
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            gcList: [],
+            zyList: [],
+            mgList: []
+        },
+        mounted: function () {
+            axios.get("json/dianshiju.json").then((data) => {
+                this.gcList = data.data.subject_collection_items
+            }).catch((error) => {
+                console.log(error);
+            })
+            axios.get("json/zongyi.json").then((data) => {
+                this.zyList = data.data.subject_collection_items
+            }).catch((error) => {
+                console.log(error);
+            })
+            axios.get("json/yingmei.json").then((data) => {
+                this.mgList = data.data.subject_collection_items
+            }).catch((error) => {
+                console.log(error);
+            })
+        }
+    })
+</script>
+</body>
+</html>
