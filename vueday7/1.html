@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vue.js"></script>
+    <script src="js/vue-router.js"></script>
+    <script src="js/axios.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <router-link to="/mylist">列表</router-link>
+    <router-link to="/myitem">内容</router-link>
+    <router-view></router-view>
+</div>
+</body>
+<script>
+   // 创建组件
+     var mylist={
+         data:function () {
+             return{
+                 list:[]
+             }
+             },
+         template:`<div>列表页<ul>
+            <li v-for="(item,index) in list">
+            <router-link :to="'/myitem/'+item.productId">{{item.proTitle}}</router-link>
+            <!--<router-link :to="'/myitem/'+item.productld">{{item.proTitle}}</router-link>-->
+</li></ul></div>`,
+             mounted:function () {
+                axios.post("http://www.51houniao.com/product/product/getProductRecommendUser",{
+                desc:false,
+                orderBy:"top",
+                pageNow:1,
+                pageSize:"20",
+                seller_user_id: "4bc4027c645343f09a964b5c2e9f875b"
+                }).then((res)=>{
+                    console.log(res);
+                    this.list=res.data
+                })
+         },
+     }
+
+    // var mylist = {
+    //     data:function(){
+    //         return{
+    //             list:[]
+    //         }
+    //     },
+    //     template:`<div>列表页
+	// 				<ul>
+	// 					<li v-for="(item,index) in list">
+	// 					<router-link :to="'/myitem/'+item.productId">{{item.proTitle}}</router-link>
+	// 					</li>
+	// 				</ul>
+	// 			</div>`,
+    //     mounted:function(){
+    //         axios.post("http://www.51houniao.com/product/product/getProductRecommendUser",{
+    //             desc: false,
+    //             orderBy: "top",
+    //             pageNow: 1,
+    //             pageSize: 20,
+    //             seller_user_id: "4bc4027c645343f09a964b5c2e9f875b"
+    //         }).then((res)=>{
+    //             console.log(res);
+    //             this.list = res.data;
+    //         })
+    //     },
+    // }
+
+    // var myitem = {
+    //     data:function(){
+    //         return {
+    //             item:{}
+    //         }
+    //     },
+    //     template:`<div>内容页
+	// 			产品id：{{$route.params}}
+	// 			产品标题：<span v-if="item.product_base_info !== undefined">{{item.product_base_info.pro_title}}</span>
+	// 			<div v-if="item.product_base_info !== undefined">
+	// 				<img :src="item.product_base_info.pro_pic_url" />
+	// 			</div>
+	// 			</div>`,
+    //     watch:{
+    //         '$route'(to,from){}
+    //     },
+    //     mounted:function(){
+    //         //获取内容页数据
+    //         axios.get("http://www.51houniao.com/product/product/getProductDetails/"+this.$route.params.idvalue
+    //         ).then((res)=>{
+    //             console.log(res);
+    //             this.item = res.data;
+    //         })
+    //     }
+    // }
+
+    var myitem={
+        data:function () {
+            return{
+                item:{}
+            }
+        },
+        template:`
+         <div>内容页面id:{{$route.params}}
+         产品标题：<span v-if="item.product_base_info !== undefined">{{item.product_base_info.pro_title}}</span>
+				<div v-if="item.product_base_info !== undefined">
+					<img :src="item.product_base_info.pro_pic_url" />
+				</div>
+         </div>`,
+        watch:{"$route"(to,from){}},
+        mounted:function () {
+            axios.get("http://www.51houniao.com/product/product/getProductDetails/"+this.$route.params.idvalue).then((res)=>{
+                console.log(res);
+                this.item=res.data
+            })
+        }
+    }
+
+    var routes = [
+            {"path":"/mylist","component":mylist},
+            {"path":"/myitem/:idvalue","component":myitem} /*a.配置动态路由的第一步  :参数名*/
+        ]
+    //创建路由对象
+    var router= new VueRouter({
+        routes:routes
+    })
+    var vm =new Vue({
+        el:"#app",
+        data:{
+        },
+        router: router
+    })
+
+
+
+
+</script>
+</html>
