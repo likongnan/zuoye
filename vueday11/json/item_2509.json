@@ -1,0 +1,55 @@
+{
+	"code": 10000,
+	"msg": "success",
+	"data": {
+		"total": 3700,
+		"reviews": [{
+			"item_uid": "11_2509",
+			"sku_id": 30892,
+			"sku_name": "春雨蜂蜜面膜 25g*5片",
+			"sku_reviews": "非常好用哒，轻度敏感肌肤可以用的成份算是温和的，推荐购买！很喜欢😘",
+			"reviews_time": 1556319559000,
+			"reply": "",
+			"nick_name": "🍀旧时光🌸",
+			"user_img_url": "https://image.watsons.com.cn/user_img/iOS-cb8666bf5d782aca7dbaf69042b57a11.png",
+			"review_img_urls": "https://image.watsons.com.cn/reviews_img/iOS-b61eae3e3e94d3f525b2f02daaa74ca8.png?x-oss-process=style/itemReview",
+			"order_id": 18602968,
+			"order_item_id": 35501191,
+			"review_type": 0,
+			"score": 5,
+			"score_type": 0,
+			"source": 0,
+			"recommend": 1,
+			"sku_spec": "25g*5片",
+			"sku_img_url": "https://image.watsons.com.cn//upload/5f8e47b3.jpg"
+		}],
+		"hot_tags": [{
+			"tag": "全部",
+			"num": 3700
+		}, {
+			"tag": "只看有图",
+			"num": 152
+		}, {
+			"tag": "好用",
+			"num": 680
+		}, {
+			"tag": "不错",
+			"num": 525
+		}, {
+			"tag": "喜欢",
+			"num": 185
+		}, {
+			"tag": "挺好",
+			"num": 183
+		}, {
+			"tag": "补水",
+			"num": 168
+		}, {
+			"tag": "是正品",
+			"num": 116
+		}],
+		"time": 1579833128303
+	},
+	"trace_id": "202491b9c69b4585a5cfbf5f9c764b45",
+	"cat_id": "mop-ac118638-438842-572961"
+}

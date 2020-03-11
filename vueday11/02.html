@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>store,vuex仓库</title>
+    <script src="js/vuex.js"></script>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    获取仓库的值 {{count}}
+    <child></child>
+</div>
+<script>
+    var child={
+        template:`<div>
+     子组件中的获取store{{count}}
+</div>`,
+        computed: {
+            count:function () {
+                return this.$store.state.count
+                }
+            }
+        }
+
+    //创建对象
+    var store =new Vuex.Store({
+        state:{
+            count:10
+        }
+    })
+
+    //节点
+    var vm =new Vue({
+        el:"#app",
+        data: {
+
+        },
+        computed:{
+            //获取vuex数据
+            count: function () {
+                return this.$store.state.count
+            }
+        },
+        components:{
+            child
+        },
+        //注册vuex
+        store: store
+    })
+
+</script>
+</body>
+</html>

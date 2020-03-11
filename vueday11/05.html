@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>载荷</title>
+    <script src="js/vue.js"></script>
+    <script src="js/vuex.js"></script>
+</head>
+<body>
+<div id="app">
+<button @click="incrementFun">仓库中的数值{{count}} </button>
+    仓库其他值{{qi}}
+</div>
+</body>
+<script>
+//建立store
+var store =new Vuex.Store({
+    state:{
+        count:10,
+        qi:12,
+    },
+    //修改函数
+    mutations:{
+        increment:function (state,n) {
+            state.count += n
+        }
+    }
+})
+
+
+    //节点创建
+    var vm= new Vue({
+        el:"#app",
+        data:{
+
+        },
+        computed:{
+            count(){
+                return this.$store.state.count
+            },
+            qi: function () {
+                return this.$store.state.qi
+            }
+
+
+        },
+        methods:{
+            incrementFun:function () {
+                this.$store.commit("increment",5)
+            }
+        },
+      store:store
+    })
+
+
+</script>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对象载荷</title>
+    <script src="js/vuex.js"></script>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    获取vuex仓库中的值：{{count}}
+    <!--2.修改时在html中添加按钮-->
+    <button @click="incrementFun">count加n</button>
+</div>
+<script>
+var store =new Vuex.Store({
+    state:{
+        count:10,
+    },
+    //修改state数值函数
+    mutations:{
+        //接收参数
+        increment:function (state,n) {
+            state.count+=n.num
+        }
+    }
+})
+
+
+    //创建节点
+    var vm =new Vue({
+        el:"#app",
+        data:{},
+        computed:{
+            count(){
+                return this.$store.state.count
+            }
+        },
+        methods:{
+            incrementFun:function () {
+               this.$store.commit({
+                   type:"increment",
+                   num:5
+               })
+            }
+        },
+ store:store
+    })
+</script>
+</body>
+</html>

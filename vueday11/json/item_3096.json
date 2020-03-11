@@ -1,0 +1,54 @@
+{
+	"code": 10000,
+	"msg": "success",
+	"data": {
+		"total": 829,
+		"reviews": [{
+			"item_uid": "",
+			"sku_id": 4450,
+			"sku_name": "斐丝丽泡泡染发乳(30ml 60ml 20ml) 六色可选",
+			"sku_reviews": "送货上门，大概半小时？",
+			"reviews_time": 1560259894000,
+			"reply": "",
+			"nick_name": "匿名",
+			"user_img_url": "https://image.watsons.com.cn/upload/hahy4f2323.png",
+			"order_id": 0,
+			"order_item_id": 0,
+			"review_type": 1,
+			"score": 5,
+			"score_type": 0,
+			"source": 1,
+			"recommend": 1,
+			"sku_spec": "",
+			"sku_img_url": ""
+		}],
+		"hot_tags": [{
+			"tag": "全部",
+			"num": 829
+		}, {
+			"tag": "只看有图",
+			"num": 57
+		}, {
+			"tag": "推荐",
+			"num": 12
+		}, {
+			"tag": "不错",
+			"num": 92
+		}, {
+			"tag": "好用",
+			"num": 74
+		}, {
+			"tag": "方便",
+			"num": 59
+		}, {
+			"tag": "颜色好看",
+			"num": 42
+		}, {
+			"tag": "喜欢",
+			"num": 36
+		}],
+		"time": 1579832963997
+	},
+	"trace_id": "54d692ed44ae49e8904a89251f8c8285",
+	"cat_id": "mop-ac118638-438842-518828"
+}

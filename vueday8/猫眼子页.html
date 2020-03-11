@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vue.js"></script>
+    <script src="js/vue-router.js"></script>
+</head>
+<body>
+<div id="app">
+    <router-link to="/main">正在上映</router-link>
+    <router-link to="/main2">即将上映</router-link>
+    <router-view></router-view>
+</div>
+
+</body>
+<script>
+    //设置组件
+    var main={
+        template:`<div>变换中的中国.</div>
+<router-link ></router-link>`
+    }
+    var main2={
+        template: `<div>大红包</div>`
+    }
+    //配置路由表,为数组
+    var routes=[
+        {"path":"main","component":main,},
+        {"path":"main2","component":main2,},
+    ]
+    var child1={template:`<h2>大红包</h2>
+<div>喜剧/爱情</div>`}
+    //创建路由对象
+    var router=new VueRouter({
+        routes:routes
+    })
+    //跟节点
+    var vm =new Vue({
+        el:"#app",
+        data: {},
+        router:router
+    })
+</script>
+</html>

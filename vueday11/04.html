@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>辅助函数</title>
+    <script src="js/vuex.js"></script>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <ul>
+        <h2>store中的count中的值：{{count}}</h2>
+        <li v-for="(item,index) in stu"> {{item.id}}=={{item.age}}</li>
+
+    </ul>
+</div>
+</body>
+<script>
+
+    //建立辅助函数
+    var mapState=Vuex.mapState
+    //建立仓库
+    var store=new Vuex.Store({
+        state:{
+            count:10,
+            stu:[
+                {"id":"wuliang","age":10},
+                {"id":"gouzi","age":14},
+                {"id":"lasheng","age":19}
+            ]
+        }
+    })
+
+
+    //节点
+    var vm=new Vue({
+        el:"#app",
+        data:{},
+//获取store中的数据
+        computed:{
+            ...mapState({
+                count:state=>state.count,
+                stu:state=>state.stu
+            })
+        },
+        store
+    })
+
+
+</script>
+</html>

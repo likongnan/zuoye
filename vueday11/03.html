@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vuex.js"></script>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    vuex中的数值{{count}}
+    <button @click="incrementFun">点击加加</button>
+</div>
+</body>
+<script>
+    //创建一个vuex仓库
+    var store=new Vuex.Store({
+        state:{count:10},
+        //修改state中的数值
+        mutations:{
+            changeCount(state){
+                state.count++
+            }
+        }
+
+        }
+    )
+
+    var vm=new Vue({
+        el:"#app",
+        data:{},
+        computed:{
+            count(){
+                return this.$store.state.count
+            }
+        },
+        methods:{
+            incrementFun:function () {
+               // this.$store.commit("changeCount")
+                this.$store.commit('changeCount');
+            }
+        },
+        store: store
+    })
+</script>
+</html>

@@ -1,0 +1,55 @@
+{
+	"code": 10000,
+	"msg": "success",
+	"data": {
+		"total": 328,
+		"reviews": [{
+			"item_uid": "11_30191",
+			"sku_id": 54481,
+			"sku_name": "优理氏烟酰胺亮肤安瓶原液 1ml*28支",
+			"sku_reviews": "收到还没用，用过之后再议，还送了一支优理氏的口红，挺好的！",
+			"reviews_time": 1577603048000,
+			"reply": "",
+			"nick_name": "杨柳依依",
+			"user_img_url": "http://image.watsons.com.cn/upload/hahy4f2323.png",
+			"review_img_urls": "https://image.watsons.com.cn/reviews_img/Android7088123b7525743570a25a92fa6dadd4.jpg?x-oss-process=style/itemReview,https://image.watsons.com.cn/reviews_img/Androidb239119247e992fa4f7d9e4105a92be8.jpg?x-oss-process=style/itemReview",
+			"order_id": 56482215,
+			"order_item_id": 105213232,
+			"review_type": 0,
+			"score": 5,
+			"score_type": 0,
+			"source": 0,
+			"recommend": 0,
+			"sku_spec": "1ml*28支",
+			"sku_img_url": "https://image.watsons.com.cn//upload/71948be3.jpg"
+		}],
+		"hot_tags": [{
+			"tag": "全部",
+			"num": 328
+		}, {
+			"tag": "只看有图",
+			"num": 28
+		}, {
+			"tag": "推荐",
+			"num": 15
+		}, {
+			"tag": "好用",
+			"num": 45
+		}, {
+			"tag": "不错",
+			"num": 34
+		}, {
+			"tag": "挺好",
+			"num": 13
+		}, {
+			"tag": "效果好",
+			"num": 11
+		}, {
+			"tag": "还可以",
+			"num": 10
+		}],
+		"time": 1579832739688
+	},
+	"trace_id": "5070ad947cbe4b1db158c1e842e5c7e6",
+	"cat_id": "mop-ac118638-438842-447541"
+}

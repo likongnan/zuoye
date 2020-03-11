@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vue.js"></script>
+    <script src="js/vuex.js"></script>
+</head>
+<body>
+  <div id="app"></div>
+</body>
+<script>
+    var vm =new Vue({
+        el:"#app",
+        data: {
+            num:0
+        },
+        methods:{
+           //动作响应在view上的用户输入变化导致
+           incrementFun:function(){
+               this.num++
+            }
+
+        }
+    })
+
+</script>
+</html>
